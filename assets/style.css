@@ -1,0 +1,205 @@
+/* Rabbit Register Plugin Styles */
+
+.rabbit-register-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.rabbit-register-container h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.rabbit-register-container h3 {
+    color: #34495e;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.rabbit-register-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.rabbit-register-container input[type="text"],
+.rabbit-register-container input[type="tel"],
+.rabbit-register-container input[type="date"],
+.rabbit-register-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.rabbit-register-container input[type="checkbox"],
+.rabbit-register-container input[type="radio"] {
+    margin-right: 8px;
+}
+
+.rabbit-register-container p {
+    margin-bottom: 10px;
+}
+
+.terms-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.terms-box p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+#insurance-details {
+    background: #f0f8ff;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.button {
+    background: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #2980b9;
+}
+
+.button-primary {
+    background: #2ecc71;
+}
+
+.button-primary:hover {
+    background: #27ae60;
+}
+
+.wp-list-table {
+    margin-top: 20px;
+}
+
+.view-registration {
+    margin: 2px;
+}
+
+/* Notices */
+.rr-notice {
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.rr-notice p, .rr-notice h3 {
+    margin: 0 0 8px;
+}
+
+.rr-notice p:last-child {
+    margin-bottom: 0;
+}
+
+.rr-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.rr-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.rr-warning {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+}
+
+/* Slug badge in edit heading */
+.rr-slug {
+    font-family: monospace;
+    background: #eef;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.95em;
+}
+
+/* Field hint */
+.rr-field-hint {
+    display: block;
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 3px;
+}
+
+/* Lookup panel */
+.rr-lookup-panel {
+    margin-top: 40px;
+    padding: 25px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.rr-lookup-panel h3 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.rr-lookup-panel hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.rr-lookup-panel input[type="text"],
+.rr-lookup-panel input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 4px;
+}

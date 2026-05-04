@@ -1,0 +1,530 @@
+# Swedish translations for Rabbit Register plugin
+# Copyright (C) 2024 Gunnesbo 4H
+# This file is distributed under the same license as the Rabbit Register plugin.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Rabbit Register 1.0.0\n"
+"Report-Msgid-Bugs-To: https://gunnesbo4h.se\n"
+"POT-Creation-Date: 2024-01-01 00:00:00+00:00\n"
+"PO-Revision-Date: 2024-01-01 00:00:00+00:00\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name
+#: rabbit-register.php:4
+msgid "Rabbit Register"
+msgstr "Kaninregistrering"
+
+#: includes/class-admin.php:12
+msgid "Registrations"
+msgstr "Registreringar"
+
+#: includes/class-admin.php:13
+msgid "Animal Types"
+msgstr "Djurtyper"
+
+#: includes/class-admin.php:14
+msgid "Rabbit Hotel Registrations"
+msgstr "Kaninhotell Registreringar"
+
+#: includes/class-admin.php:15
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/class-admin.php:16
+msgid "Animal"
+msgstr "Djur"
+
+#: includes/class-admin.php:17
+msgid "Animal Name"
+msgstr "Djurets namn"
+
+#: includes/class-admin.php:18
+msgid "Owner"
+msgstr "Ägare"
+
+#: includes/class-admin.php:19
+msgid "Phone"
+msgstr "Telefon"
+
+#: includes/class-admin.php:20
+msgid "Dates"
+msgstr "Datum"
+
+#: includes/class-admin.php:21
+msgid "Status"
+msgstr "Status"
+
+#: includes/class-admin.php:22
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: includes/class-admin.php:23
+msgid "View"
+msgstr "Visa"
+
+#: includes/class-admin.php:24
+msgid "Add New Animal Type"
+msgstr "Lägg till ny djurtyp"
+
+#: includes/class-admin.php:25
+msgid "Name (Swedish)"
+msgstr "Namn (Svenska)"
+
+#: includes/class-admin.php:26
+msgid "Name (English)"
+msgstr "Namn (Engelska)"
+
+#: includes/class-admin.php:27
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/class-admin.php:28
+msgid "Add Animal Type"
+msgstr "Lägg till djurtyp"
+
+#: includes/class-admin.php:29
+msgid "Existing Animal Types"
+msgstr "Befintliga djurtyper"
+
+#: includes/class-admin.php:30
+msgid "Name (SV)"
+msgstr "Namn (SV)"
+
+#: includes/class-admin.php:31
+msgid "Name (EN)"
+msgstr "Namn (EN)"
+
+#: includes/class-admin.php:32
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: includes/class-admin.php:33
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/class-admin.php:34
+msgid "No"
+msgstr "Nej"
+
+#: includes/class-admin.php:35
+msgid "Disable"
+msgstr "Inaktivera"
+
+#: includes/class-admin.php:36
+msgid "Enable"
+msgstr "Aktivera"
+
+#: includes/class-admin.php:37
+msgid "Delete"
+msgstr "Radera"
+
+#: includes/class-admin.php:38
+msgid "Are you sure?"
+msgstr "Är du säker?"
+
+#: includes/shortcodes.php:40
+msgid "Passekanin på Gunnesbo 4H"
+msgstr "Passekanin på Gunnesbo 4H"
+
+#: includes/shortcodes.php:41
+msgid "Rabbit Hotel at Gunnesbo 4H"
+msgstr "Kaninhotell på Gunnesbo 4H"
+
+#: includes/shortcodes.php:42
+msgid "Djurtyp"
+msgstr "Djurtyp"
+
+#: includes/shortcodes.php:43
+msgid "Animal Type"
+msgstr "Djurtyp"
+
+#: includes/shortcodes.php:44
+msgid "Välj typ av djur:"
+msgstr "Välj typ av djur:"
+
+#: includes/shortcodes.php:45
+msgid "Select animal type:"
+msgstr "Välj djurtyp:"
+
+#: includes/shortcodes.php:46
+msgid "Välj..."
+msgstr "Välj..."
+
+#: includes/shortcodes.php:47
+msgid "Select..."
+msgstr "Välj..."
+
+#: includes/shortcodes.php:48
+msgid "Djurets namn"
+msgstr "Djurets namn"
+
+#: includes/shortcodes.php:49
+msgid "Animal Name"
+msgstr "Djurets namn"
+
+#: includes/shortcodes.php:50
+msgid "Kaninens/marsvinens/hamsterns namn:"
+msgstr "Kaninens/marsvinets/hamsterns namn:"
+
+#: includes/shortcodes.php:51
+msgid "Rabbit/Guinea pig/Hamster name:"
+msgstr "Kaninens/Marsvinets/Hamsterns namn:"
+
+#: includes/shortcodes.php:52
+msgid "Ägare"
+msgstr "Ägare"
+
+#: includes/shortcodes.php:53
+msgid "Owner"
+msgstr "Ägare"
+
+#: includes/shortcodes.php:54
+msgid "Ägare:"
+msgstr "Ägare:"
+
+#: includes/shortcodes.php:55
+msgid "Owner:"
+msgstr "Ägare:"
+
+#: includes/shortcodes.php:56
+msgid "Telefonnummer:"
+msgstr "Telefonnummer:"
+
+#: includes/shortcodes.php:57
+msgid "Phone number:"
+msgstr "Telefonnummer:"
+
+#: includes/shortcodes.php:58
+msgid "Annat nummer om ägaren inte går att nå:"
+msgstr "Annat nummer om ägaren inte går att nå:"
+
+#: includes/shortcodes.php:59
+msgid "Alternate number if owner cannot be reached:"
+msgstr "Annat nummer om ägaren inte går att nå:"
+
+#: includes/shortcodes.php:60
+msgid "Nödkontaktperson"
+msgstr "Nödkontaktperson"
+
+#: includes/shortcodes.php:61
+msgid "Emergency Contact"
+msgstr "Nödkontaktperson"
+
+#: includes/shortcodes.php:62
+msgid "(måste kunna hämta djuret vid behov)"
+msgstr "(måste kunna hämta djuret vid behov)"
+
+#: includes/shortcodes.php:63
+msgid "(must be able to pick up the animal if needed)"
+msgstr "(måste kunna hämta djuret vid behov)"
+
+#: includes/shortcodes.php:64
+msgid "Namn:"
+msgstr "Namn:"
+
+#: includes/shortcodes.php:65
+msgid "Name:"
+msgstr "Namn:"
+
+#: includes/shortcodes.php:66
+msgid "Datum"
+msgstr "Datum"
+
+#: includes/shortcodes.php:67
+msgid "Dates"
+msgstr "Datum"
+
+#: includes/shortcodes.php:68
+msgid "Djuret lämnas:"
+msgstr "Djuret lämnas:"
+
+#: includes/shortcodes.php:69
+msgid "Animal drop-off:"
+msgstr "Djuret lämnas:"
+
+#: includes/shortcodes.php:70
+msgid "Djuret hämtas:"
+msgstr "Djuret hämtas:"
+
+#: includes/shortcodes.php:71
+msgid "Animal pick-up:"
+msgstr "Djuret hämtas:"
+
+#: includes/shortcodes.php:72
+msgid "Medtagna tillbehör"
+msgstr "Medtagna tillbehör"
+
+#: includes/shortcodes.php:73
+msgid "Brought Accessories"
+msgstr "Medtagna tillbehör"
+
+#: includes/shortcodes.php:74
+msgid "Kryssa i det som gäller:"
+msgstr "Kryssa i det som gäller:"
+
+#: includes/shortcodes.php:75
+msgid "Check what applies:"
+msgstr "Kryssa i det som gäller:"
+
+#: includes/shortcodes.php:76
+msgid "Egen vattenflaska"
+msgstr "Egen vattenflaska"
+
+#: includes/shortcodes.php:77
+msgid "Own water bottle"
+msgstr "Egen vattenflaska"
+
+#: includes/shortcodes.php:78
+msgid "Egen/egna skålar"
+msgstr "Egen/egna skålar"
+
+#: includes/shortcodes.php:79
+msgid "Own bowls"
+msgstr "Egen/egna skålar"
+
+#: includes/shortcodes.php:80
+msgid "Eget hus"
+msgstr "Eget hus"
+
+#: includes/shortcodes.php:81
+msgid "Own house"
+msgstr "Eget hus"
+
+#: includes/shortcodes.php:82
+msgid "Eget hö"
+msgstr "Eget hö"
+
+#: includes/shortcodes.php:83
+msgid "Own hay"
+msgstr "Eget hö"
+
+#: includes/shortcodes.php:84
+msgid "Egen pellets"
+msgstr "Egen pellets"
+
+#: includes/shortcodes.php:85
+msgid "Own pellets"
+msgstr "Egen pellets"
+
+#: includes/shortcodes.php:86
+msgid "Hur mycket pellets per dag:"
+msgstr "Hur mycket pellets per dag:"
+
+#: includes/shortcodes.php:87
+msgid "How much pellets per day:"
+msgstr "Hur mycket pellets per dag:"
+
+#: includes/shortcodes.php:88
+msgid "t.ex. 2 msk"
+msgstr "t.ex. 2 msk"
+
+#: includes/shortcodes.php:89
+msgid "e.g. 2 tbsp"
+msgstr "t.ex. 2 msk"
+
+#: includes/shortcodes.php:90
+msgid "Försäkring"
+msgstr "Försäkring"
+
+#: includes/shortcodes.php:91
+msgid "Insurance"
+msgstr "Försäkring"
+
+#: includes/shortcodes.php:92
+msgid "Är djuret försäkrad?"
+msgstr "Är djuret försäkrat?"
+
+#: includes/shortcodes.php:93
+msgid "Is the animal insured?"
+msgstr "Är djuret försäkrat?"
+
+#: includes/shortcodes.php:94
+msgid "JA"
+msgstr "JA"
+
+#: includes/shortcodes.php:95
+msgid "YES"
+msgstr "JA"
+
+#: includes/shortcodes.php:96
+msgid "NEJ"
+msgstr "NEJ"
+
+#: includes/shortcodes.php:97
+msgid "NO"
+msgstr "NEJ"
+
+#: includes/shortcodes.php:98
+msgid "Försäkringsbolag:"
+msgstr "Försäkringsbolag:"
+
+#: includes/shortcodes.php:99
+msgid "Insurance company:"
+msgstr "Försäkringsbolag:"
+
+#: includes/shortcodes.php:100
+msgid "Försäkringsnummer:"
+msgstr "Försäkringsnummer:"
+
+#: includes/shortcodes.php:101
+msgid "Insurance number:"
+msgstr "Försäkringsnummer:"
+
+#: includes/shortcodes.php:102
+msgid "Vaccinationsintyg"
+msgstr "Vaccinationsintyg"
+
+#: includes/shortcodes.php:103
+msgid "Vaccination Certificate"
+msgstr "Vaccinationsintyg"
+
+#: includes/shortcodes.php:104
+msgid "Ladda upp ett foto av vaccinationsintyget:"
+msgstr "Ladda upp ett foto av vaccinationsintyget:"
+
+#: includes/shortcodes.php:105
+msgid "Upload a photo of the vaccination certificate:"
+msgstr "Ladda upp ett foto av vaccinationsintyget:"
+
+#: includes/shortcodes.php:106
+msgid "Viktig information"
+msgstr "Viktig information"
+
+#: includes/shortcodes.php:107
+msgid "Important Information"
+msgstr "Viktig information"
+
+#: includes/shortcodes.php:108
+msgid "Jag har läst och accepterar villkoren ovan"
+msgstr "Jag har läst och accepterar villkoren ovan"
+
+#: includes/shortcodes.php:109
+msgid "I have read and accept the terms above"
+msgstr "Jag har läst och accepterar villkoren ovan"
+
+#: includes/shortcodes.php:110
+msgid "Skicka registrering"
+msgstr "Skicka registrering"
+
+#: includes/shortcodes.php:111
+msgid "Submit Registration"
+msgstr "Skicka registrering"
+
+#: includes/shortcodes.php:112
+msgid "Registreringen lyckades! Ditt referensnummer är:"
+msgstr "Registreringen lyckades! Ditt referensnummer är:"
+
+#: includes/shortcodes.php:113
+msgid "Registration successful!"
+msgstr "Registreringen lyckades!"
+
+#: includes/shortcodes.php:114
+msgid "Ditt referensnummer:"
+msgstr "Ditt referensnummer:"
+
+#: includes/shortcodes.php:115
+msgid "Your reference number:"
+msgstr "Ditt referensnummer:"
+
+#: includes/shortcodes.php:116
+msgid "Spara detta nummer för att kunna ändra din registrering senare."
+msgstr "Spara detta nummer för att kunna ändra din registrering senare."
+
+#: includes/shortcodes.php:117
+msgid "Save this number to edit your registration later."
+msgstr "Spara detta nummer för att kunna ändra din registrering senare."
+
+#: includes/shortcodes.php:118
+msgid "Ändra registrering"
+msgstr "Ändra registrering"
+
+#: includes/shortcodes.php:119
+msgid "Edit Registration"
+msgstr "Ändra registrering"
+
+#: includes/shortcodes.php:120
+msgid "Registration not found. Please check your reference number."
+msgstr "Registreringen hittades inte. Kontrollera ditt referensnummer."
+
+#: includes/shortcodes.php:121
+msgid "Ändra registrering"
+msgstr "Ändra registrering"
+
+#: includes/shortcodes.php:122
+msgid "Edit Registration"
+msgstr "Ändra registrering"
+
+#: includes/shortcodes.php:123
+msgid "Nuvarande intyg:"
+msgstr "Nuvarande intyg:"
+
+#: includes/shortcodes.php:124
+msgid "Current certificate:"
+msgstr "Nuvarande intyg:"
+
+#: includes/shortcodes.php:125
+msgid "Visa"
+msgstr "Visa"
+
+#: includes/shortcodes.php:126
+msgid "View"
+msgstr "Visa"
+
+#: includes/shortcodes.php:127
+msgid "Ladda upp nytt intyg (valfritt):"
+msgstr "Ladda upp nytt intyg (valfritt):"
+
+#: includes/shortcodes.php:128
+msgid "Upload new certificate (optional):"
+msgstr "Ladda upp nytt intyg (valfritt):"
+
+#: includes/shortcodes.php:129
+msgid "Uppdatera registrering"
+msgstr "Uppdatera registrering"
+
+#: includes/shortcodes.php:130
+msgid "Update Registration"
+msgstr "Uppdatera registrering"
+
+#: includes/shortcodes.php:131
+msgid "Tillbaka"
+msgstr "Tillbaka"
+
+#: includes/shortcodes.php:132
+msgid "Back"
+msgstr "Tillbaka"
+
+#: includes/shortcodes.php:133
+msgid "Registration failed. Please try again."
+msgstr "Registreringen misslyckades. Försök igen."
+
+#: includes/shortcodes.php:134
+msgid "Registration updated successfully!"
+msgstr "Registreringen uppdaterades!"
+
+#: includes/shortcodes.php:135
+msgid "Update failed. Please try again."
+msgstr "Uppdateringen misslyckades. Försök igen."
+
+#: includes/shortcodes.php:136
+msgid "Lämnas:"
+msgstr "Lämnas:"
+
+#: includes/shortcodes.php:137
+msgid "Drop-off:"
+msgstr "Lämnas:"
+
+#: includes/shortcodes.php:138
+msgid "Hämtas:"
+msgstr "Hämtas:"
+
+#: includes/shortcodes.php:139
+msgid "Pick-up:"
+msgstr "Hämtas:"
