@@ -6,8 +6,9 @@
 class Rabbit_Register_Admin {
 
     public function __construct() {
-        add_action('admin_menu', array($this, 'add_admin_menu'));
-        add_action('admin_init', array($this, 'handle_admin_actions'));
+        add_action('admin_menu',                              array($this, 'add_admin_menu'));
+        add_action('admin_init',                              array($this, 'handle_admin_actions'));
+        add_action('wp_ajax_rabbit_register_view_file',       array($this, 'handle_view_file'));
     }
 
     /**
@@ -71,6 +72,10 @@ class Rabbit_Register_Admin {
         <div class="wrap">
             <h1><?php _e('Rabbit Hotel Registrations', 'rabbit-register'); ?></h1>
 
+            <?php if ( isset($_GET['message']) && $_GET['message'] === 'deleted' ): ?>
+            <div class="notice notice-success is-dismissible"><p><?php _e('Registration deleted.', 'rabbit-register'); ?></p></div>
+            <?php endif; ?>
+
             <table class="wp-list-table widefat fixed striped">
                 <thead>
                     <tr>
@@ -80,7 +85,7 @@ class Rabbit_Register_Admin {
                         <th><?php _e('Owner', 'rabbit-register'); ?></th>
                         <th><?php _e('Phone', 'rabbit-register'); ?></th>
                         <th style="width:80px"><?php _e('Status', 'rabbit-register'); ?></th>
-                        <th style="width:70px"><?php _e('Actions', 'rabbit-register'); ?></th>
+                        <th style="width:120px"><?php _e('Actions', 'rabbit-register'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,6 +109,11 @@ class Rabbit_Register_Admin {
                             <button type="button" class="button button-small rr-view-toggle" data-target="<?php echo $row_id; ?>">
                                 <?php _e('View', 'rabbit-register'); ?>
                             </button>
+                            <form method="post" style="display:inline;" onsubmit="return confirm('<?php echo esc_js( sprintf( __( 'Permanently delete the registration for %s (%s)? This cannot be undone.', 'rabbit-register' ), $reg->animal_name, $reg->registration_slug ) ); ?>')">
+                                <?php wp_nonce_field( 'delete_registration_' . $reg->registration_slug, 'registration_nonce' ); ?>
+                                <input type="hidden" name="registration_slug" value="<?php echo esc_attr( $reg->registration_slug ); ?>">
+                                <input type="submit" name="delete_registration" class="button button-small button-link-delete" value="<?php _e('Delete', 'rabbit-register'); ?>">
+                            </form>
                         </td>
                     </tr>
                     <tr id="<?php echo $row_id; ?>" class="rr-detail-row" style="display:none;">
@@ -163,8 +173,14 @@ class Rabbit_Register_Admin {
                                     </td>
                                     <td style="padding:6px 0 6px 0; vertical-align:top;">
                                         <strong><?php _e('Vaccination cert.', 'rabbit-register'); ?></strong><br>
-                                        <?php if ($reg->vaccination_certificate): ?>
-                                            <a href="<?php echo esc_url($reg->vaccination_certificate); ?>" target="_blank"><?php _e('View file', 'rabbit-register'); ?></a>
+                                        <?php if ($reg->vaccination_certificate):
+                                            $file_url = add_query_arg( array(
+                                                'action' => 'rabbit_register_view_file',
+                                                'slug'   => $reg->registration_slug,
+                                                'nonce'  => wp_create_nonce( 'rabbit_register_view_file' ),
+                                            ), admin_url('admin-ajax.php') );
+                                        ?>
+                                            <a href="<?php echo esc_url($file_url); ?>" target="_blank"><?php _e('View file', 'rabbit-register'); ?></a>
                                         <?php else: ?>
                                             <?php _e('None uploaded', 'rabbit-register'); ?>
                                         <?php endif; ?>
@@ -391,6 +407,16 @@ class Rabbit_Register_Admin {
             }
         }
 
+        // Delete registration
+        if ( isset( $_POST['delete_registration'] ) && isset( $_POST['registration_slug'] ) ) {
+            $slug = sanitize_text_field( $_POST['registration_slug'] );
+            if ( wp_verify_nonce( $_POST['registration_nonce'], 'delete_registration_' . $slug ) ) {
+                Rabbit_Register_Registration::delete( $slug );
+                wp_redirect( admin_url( 'admin.php?page=rabbit-register&message=deleted' ) );
+                exit;
+            }
+        }
+
         // Save disclaimer (with or without notification)
         if ( ( isset($_POST['save_disclaimer']) || isset($_POST['save_disclaimer_notify']) )
              && isset($_POST['disclaimer_nonce'])
@@ -450,6 +476,62 @@ class Rabbit_Register_Admin {
              LIMIT 1"
         );
         return $page ? get_permalink($page->ID) : home_url('/');
+    }
+
+    /**
+     * AJAX proxy: stream a protected vaccination certificate file to an admin.
+     * URL: admin-ajax.php?action=rabbit_register_view_file&slug=…&nonce=…
+     */
+    public function handle_view_file() {
+        // Must be a logged-in admin.
+        if ( ! current_user_can('manage_options') ) {
+            wp_die( 'Access denied.', '', array( 'response' => 403 ) );
+        }
+
+        // Verify the nonce.
+        $nonce = isset( $_GET['nonce'] ) ? $_GET['nonce'] : '';
+        if ( ! wp_verify_nonce( $nonce, 'rabbit_register_view_file' ) ) {
+            wp_die( 'Security check failed.', '', array( 'response' => 403 ) );
+        }
+
+        $slug = isset( $_GET['slug'] ) ? sanitize_text_field( $_GET['slug'] ) : '';
+        if ( ! $slug ) {
+            wp_die( 'Missing slug.', '', array( 'response' => 400 ) );
+        }
+
+        $registration = Rabbit_Register_Registration::get_by_slug( $slug );
+        if ( ! $registration || ! $registration->vaccination_certificate ) {
+            wp_die( 'File not found.', '', array( 'response' => 404 ) );
+        }
+
+        // Convert the stored URL to an absolute filesystem path.
+        $upload_dir = wp_upload_dir();
+        $file_path  = str_replace(
+            $upload_dir['baseurl'],
+            $upload_dir['basedir'],
+            $registration->vaccination_certificate
+        );
+
+        if ( ! file_exists( $file_path ) ) {
+            wp_die( 'File not found on disk.', '', array( 'response' => 404 ) );
+        }
+
+        $ext        = strtolower( pathinfo( $file_path, PATHINFO_EXTENSION ) );
+        $mime_types = array(
+            'jpg'  => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'png'  => 'image/png',
+            'pdf'  => 'application/pdf',
+        );
+        $mime = isset( $mime_types[ $ext ] ) ? $mime_types[ $ext ] : 'application/octet-stream';
+
+        // Stream the file.
+        header( 'Content-Type: '        . $mime );
+        header( 'Content-Length: '      . filesize( $file_path ) );
+        header( 'Content-Disposition: inline; filename="' . basename( $file_path ) . '"' );
+        header( 'X-Content-Type-Options: nosniff' );
+        readfile( $file_path );
+        exit;
     }
 }
 

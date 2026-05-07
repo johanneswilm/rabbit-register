@@ -181,4 +181,32 @@ class Rabbit_Register_Registration {
 
         return '';
     }
+
+    /**
+     * Delete a registration and its uploaded vaccination certificate (if any).
+     */
+    public static function delete( $slug ) {
+        global $wpdb;
+        $table = $wpdb->prefix . 'rabbit_registrations';
+
+        // Remove the uploaded file first.
+        $registration = self::get_by_slug( $slug );
+        if ( $registration && $registration->vaccination_certificate ) {
+            $upload_dir = wp_upload_dir();
+            $file_path  = str_replace(
+                $upload_dir['baseurl'],
+                $upload_dir['basedir'],
+                $registration->vaccination_certificate
+            );
+            if ( file_exists( $file_path ) ) {
+                unlink( $file_path );
+            }
+        }
+
+        return $wpdb->delete(
+            $table,
+            array( 'registration_slug' => $slug ),
+            array( '%s' )
+        );
+    }
 }
